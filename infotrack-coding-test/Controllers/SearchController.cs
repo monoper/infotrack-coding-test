@@ -5,11 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using infotrack_coding_test.Models;
+using infotrack_coding_test.services.interfaces;
 
 namespace infotrack_coding_test.Controllers
 {
     public class SearchController : Controller
     {
+        private readonly ISearchService _searchService;
+
+        public SearchController(ISearchService searchService)
+        {
+            _searchService = searchService;
+        }
+
         [HttpGet("")]
         public IActionResult Search()
         {
@@ -23,10 +31,15 @@ namespace infotrack_coding_test.Controllers
             {
                 return View(searchViewModel);
             }
+            var searchKeywords = searchViewModel.Keywords.Split(" ");
+
+            var searchresults = await _searchService.Search(searchViewModel.SearchUrl, searchKeywords);
+
             var results = new ResultsViewModel
             {
-                SearchPositions = new List<int>(),
-                Keywords = searchViewModel.Keywords
+                SearchPositions = searchresults.SearchPositions,
+                Keywords = searchViewModel.Keywords,
+                SearchUrl = searchViewModel.SearchUrl
             };
 
             return View("~/Views/Search/Results.cshtml", results);

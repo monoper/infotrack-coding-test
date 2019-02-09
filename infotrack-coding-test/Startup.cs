@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using infotrack_coding_test.services;
+using infotrack_coding_test.services.interfaces;
 
 namespace infotrack_coding_test
 {
@@ -24,6 +26,9 @@ namespace infotrack_coding_test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IParseSearchResponseService, ParseSearchResponseService>();
+            services.AddScoped<ISearchService, SearchService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

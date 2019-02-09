@@ -1,3 +1,4 @@
 infotrack-coding-test/obj/*
 infotrack-coding-test/bin/*
 infotrack-coding-test.tests/obj/*
+.vscode/*
