@@ -10,14 +10,14 @@ namespace infotrack_coding_test.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpGet("/")]
+        [HttpGet("")]
         public IActionResult Search()
         {
             return View(new SearchViewModel());
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Search([FromBody]SearchViewModel searchViewModel)
+        [HttpPost("")]
+        public async Task<IActionResult> Search([FromForm]SearchViewModel searchViewModel)
         {
             if(!ModelState.IsValid)
             {
@@ -25,8 +25,10 @@ namespace infotrack_coding_test.Controllers
             }
             var results = new ResultsViewModel
             {
+                SearchPositions = new List<int>(),
                 Keywords = searchViewModel.Keywords
             };
+
             return View("~/Views/Search/Results.cshtml", results);
         }
     }

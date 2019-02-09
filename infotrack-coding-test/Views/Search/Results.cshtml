@@ -3,28 +3,36 @@
 <div class="row">
     <div class="col-md-6 col-xs-3">
         @Html.DisplayNameFor(model => model.SearchUrl)
-        @Html.EditorFor(model => model.SearchUrl)
+        @Html.DisplayFor(model => model.SearchUrl)
     </div>
     <div class="col-md-6 col-xs-3">
         @Html.DisplayNameFor(model => model.Keywords)
-        @Html.EditorFor(model => model.Keywords)
+        @Html.DisplayFor(model => model.Keywords)
     </div>
 </div>
-
-<table>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.SearchPositions)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var position in Model.SearchPositions)
-        {
+@if(Model.SearchPositions.Any())
+{
+    <table>
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => position)
-                </td>
+                <th>@Html.DisplayNameFor(model => model.SearchPositions)</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var position in Model.SearchPositions)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => position)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div>
+        <p>There are no results to display</p>
+    </div>
+}
