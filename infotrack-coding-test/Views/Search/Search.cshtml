@@ -1,0 +1,18 @@
+@model infotrack_coding_test.Models.SearchViewModel
+
+<form id="search-form" method="POST" asp-action="/Search/Search">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-4 col-xs-3">
+            @Html.DisplayNameFor(model => model.SearchUrl)
+            @Html.EditorFor(model => model.SearchUrl)
+        </div>
+        <div class="col-md-4 col-xs-3">
+            @Html.DisplayNameFor(model => model.Keywords)
+            @Html.EditorFor(model => model.Keywords)
+        </div>
+        <div class="col-md-4 col-xs-3">
+            <button type="submit" class="btn btn-primary fuller-width">Check Search Results</button>
+        </div>
+    </div>
+</form>
