@@ -71,7 +71,8 @@ namespace infotrack_coding_tests.tests {
 
             var result = await controller.Search(searchViewModel);
 
-            Assert.IsType<BadRequestObjectResult>(result);
+            var resultType = Assert.IsType<ViewResult>(result);
+            Assert.IsAssignableFrom<SearchViewModel>(resultType.ViewData.Model);
         }
     }
 }
