@@ -11,7 +11,7 @@ namespace infotrack_coding_tests.tests {
 
             var searchPositions = searchResults.FindAllIndices(searchTerm);
 
-            Assert.Contains(1, searchPositions);
+            Assert.Contains(2, searchPositions);
         }
         [Fact]
         public void FindAllIndicesTest_MultipleInstances(){
@@ -20,9 +20,9 @@ namespace infotrack_coding_tests.tests {
 
             var searchPositions = searchResults.FindAllIndices(searchTerm);
 
-            Assert.Contains(0, searchPositions);
-            Assert.Contains(2, searchPositions);
-            Assert.Contains(4, searchPositions);
+            Assert.Contains(1, searchPositions);
+            Assert.Contains(3, searchPositions);
+            Assert.Contains(5, searchPositions);
         }
         [Fact]
         public void FindAllIndicesTest_NoInstances(){

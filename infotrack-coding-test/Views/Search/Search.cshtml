@@ -4,15 +4,15 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="row">
         <div class="col-md-4 col-xs-3">
-            @Html.DisplayNameFor(model => model.SearchUrl)
-            @Html.EditorFor(model => model.SearchUrl)
+            <input asp-for="SearchUrl" class="form-control" placeholder="URL to Search For"/>
+            <span asp-validation-for="SearchUrl" class="text-danger"></span>
         </div>
         <div class="col-md-4 col-xs-3">
-            @Html.DisplayNameFor(model => model.Keywords)
-            @Html.EditorFor(model => model.Keywords)
+            <input asp-for="Keywords" class="form-control" placeholder="Keywords For Search"/>
+            <span asp-validation-for="Keywords" class="text-danger"></span>
         </div>
         <div class="col-md-4 col-xs-3">
-            <button type="submit" class="btn btn-primary fuller-width">Check Search Results</button>
+            <button type="submit" class="btn btn-primary full-width">Check Search Results</button>
         </div>
     </div>
 </form>

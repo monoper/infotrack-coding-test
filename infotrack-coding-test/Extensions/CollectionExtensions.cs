@@ -9,7 +9,7 @@ namespace infotrack_coding_test.extensions
 
             foreach(var item in stringList){
                 if(item.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)){
-                    positions.Add(position);
+                    positions.Add(position + 1);
                 }
                 position++;
             }
